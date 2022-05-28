@@ -178,7 +178,7 @@ services:
       volumes:
         - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
         - docker-in-docker:/certs/client
-        - ./php-worker/supervisord.d:/etc/supervisord.d
+        - /mnt/c/laragon/www/php-worker/supervisord.d:/etc/supervisord.d
       extra_hosts:
         - "dockerhost:${DOCKER_HOST_IP}"
       ports:
@@ -287,7 +287,7 @@ services:
           - https_proxy
           - no_proxy
       volumes:
-        - ./php-fpm/php${PHP_VERSION}.ini:/usr/local/etc/php/php.ini
+        - /mnt/c/laragon/www/php-fpm/php${PHP_VERSION}.ini:/usr/local/etc/php/php.ini
         - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
         - docker-in-docker:/certs/client
       ports:
